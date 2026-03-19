@@ -14,7 +14,7 @@ const REGISTER_WINDOW_MS = 60 * 60 * 1000; // 1 hora
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, password, restaurantName, restaurantSlug, restaurantDescription, restaurantPhone, plan } = body;
+    const { name, email, password, restaurantName, restaurantSlug, restaurantDescription, restaurantPhone, plano } = body;
 
     // Rate limiting
     const clientIp = request.headers.get("x-forwarded-for") || "unknown";
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
 
     // Validar plano
     const validPlans = ["STARTER", "PRO", "PLUS"];
-    if (plan && !validPlans.includes(plan)) {
+    if (plano && !validPlans.includes(plano)) {
       return NextResponse.json(
         { error: "Plano inválido" },
         { status: 400 }
@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
           avatarImageUrl: "/default-avatar.svg", // Imagem padrão
           coverImageUrl: "/default-cover.svg", // Imagem padrão
           ativo: false, // Inativo até confirmar email
-          plan: plan || "STARTER", // Plano padrão STARTER
+          plano: plano || "Starter", // Plano padrão Starter
         },
       });
 

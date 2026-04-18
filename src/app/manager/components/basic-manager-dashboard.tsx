@@ -8,12 +8,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 type BasicPayload = {
   comercio: {
     id: string;
     name: string;
     slug: string;
+    address: string;
     phone: string;
     ativo: boolean;
     plano: string;
@@ -35,6 +37,7 @@ type BasicPayload = {
 const defaultForm = {
   name: "",
   slug: "",
+  address: "",
   phone: "",
   ativo: false,
   plano: "Starter",
@@ -87,6 +90,7 @@ export default function BasicManagerDashboard() {
         ...prev,
         name: payload.comercio.name ?? "",
         slug: payload.comercio.slug ?? "",
+        address: payload.comercio.address ?? "",
         phone: payload.comercio.phone ?? "",
         ativo: payload.comercio.ativo,
         plano: payload.comercio.plano,
@@ -143,6 +147,7 @@ export default function BasicManagerDashboard() {
           comercio: {
             name: form.name,
             slug: form.slug,
+            address: form.address,
             phone: form.phone,
             ativo: form.ativo,
             plano: form.plano,
@@ -348,6 +353,16 @@ export default function BasicManagerDashboard() {
             <div className="space-y-1">
               <p className="text-xs font-semibold uppercase tracking-wide text-[#8f7a67]">Telefone</p>
               <Input value={form.phone} onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))} />
+            </div>
+
+            <div className="space-y-1 sm:col-span-2">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#8f7a67]">Endereço</p>
+              <Textarea
+                value={form.address}
+                onChange={(e) => setForm((p) => ({ ...p, address: e.target.value }))}
+                placeholder="Rua, número, bairro, complemento"
+                className="min-h-24"
+              />
             </div>
 
             <div className="space-y-1">

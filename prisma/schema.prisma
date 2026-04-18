@@ -19,6 +19,7 @@ model Comercio {
   name           String
   slug           String         @unique
   plano          String         @default("Starter")
+  address        String         @default("")
   description    String
   operatingStatus String        @default("")
   operatingHours String         @default("")

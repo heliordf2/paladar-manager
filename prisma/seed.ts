@@ -22,6 +22,7 @@ async function upsertComercio(comercio: any) {
     update: {
       name: comercio.name,
       slug: comercio.slug,
+      address: comercio.address ?? comercio.addres ?? comercio.endereco ?? "",
       description: comercio.description,
       avatarImageUrl: comercio.avatarImageUrl,
       coverImageUrl: comercio.coverImageUrl,
@@ -33,6 +34,7 @@ async function upsertComercio(comercio: any) {
       id: comercio.id,
       name: comercio.name,
       slug: comercio.slug,
+      address: comercio.address ?? comercio.addres ?? comercio.endereco ?? "",
       description: comercio.description,
       avatarImageUrl: comercio.avatarImageUrl,
       coverImageUrl: comercio.coverImageUrl,

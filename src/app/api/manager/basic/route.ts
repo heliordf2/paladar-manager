@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
       id: true,
       name: true,
       slug: true,
+      address: true,
       phone: true,
       ativo: true,
       plano: true,
@@ -46,6 +47,7 @@ export async function GET(request: NextRequest) {
       id: comercio.id,
       name: comercio.name,
       slug: comercio.slug,
+      address: comercio.address,
       phone: comercio.phone,
       ativo: comercio.ativo,
       plano: comercio.plano,
@@ -73,6 +75,7 @@ export async function PATCH(request: NextRequest) {
       comercio?: {
         name?: string;
         slug?: string;
+        address?: string;
         phone?: string;
         ativo?: boolean;
         plano?: string;
@@ -116,6 +119,9 @@ export async function PATCH(request: NextRequest) {
       }
       if (typeof body.comercio.slug === "string") {
         updateComercio.slug = body.comercio.slug.trim();
+      }
+      if (typeof body.comercio.address === "string") {
+        updateComercio.address = body.comercio.address.trim();
       }
       if (typeof body.comercio.phone === "string") {
         updateComercio.phone = body.comercio.phone.trim();

@@ -11,12 +11,15 @@ export default function HomePage() {
           Acesse rapidamente as áreas principais da aplicação.
         </p>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <Button className="h-12 w-full bg-[#0f766e] text-white hover:bg-[#0d9488]" asChild>
             <Link href="/manager">Abrir Manager</Link>
           </Button>
           <Button className="h-12 w-full bg-[#1e3a8a] text-white hover:bg-[#1e40af]" asChild>
             <Link href="/database">Abrir Database</Link>
+          </Button>
+          <Button className="h-12 w-full bg-[#7c3aed] text-white hover:bg-[#6d28d9]" asChild>
+            <Link href="/analytics">Abrir Analytics</Link>
           </Button>
           <Button className="h-12 w-full bg-[#8a1e1e] text-white hover:bg-[#c95757]" variant="outline" asChild>
             <Link href="/storage">Abrir Storage</Link>
